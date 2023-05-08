@@ -1,31 +1,28 @@
 const http = require("http");
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 
-const express = require('express');
+const express = require("express");
 
 const app = express();
 
-app.use(bodyParser.urlencoded({extenden: false}));
+const adminRoutes = require("./routes/admin");
+const shopRoutes = require("./routes/shop");
 
-app.use('/add-product',(req,res,next)=>{
-  res.send('<form action="/product" method="POST"><input type="text" name="tittle"><button type="submit">Add Product</button></form>')
-});
+app.use(bodyParser.urlencoded({ extenden: false }));
 
-app.post('/product',(req,res,next)=>{
- console.log(req.body);
-  res.redirect('/');
-})
-
-app.use('/',(req,res,next)=>{
-  res.send('<h1>Hellow form Express</h1>')
-});
+app.use("/admin", adminRoutes);
+app.use(shopRoutes);
 
 // const routes = require("./routes");
 
 // Rounting request
 
-const server = http.createServer(app);
+// app.use((req, res, next) => {
+//   res.status(404).send("<h1>Page is not found</h1>");
+// });
 
-server.listen(3200, () => {
+// const server = http.createServer(app);
+
+app.listen(3200, () => {
   console.log("Server is Running");
 });
