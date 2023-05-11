@@ -1,14 +1,14 @@
 {
-  "name": "node",
+  "name": "5.1-02-using-nodemon-for-autorestarts",
   "version": "1.0.0",
-  "description": "Complete Node.js Guide",
-  "main": "ATask8.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ATask8.js",
-    "start-server": "node ATask8.js"
+    "start": "nodemon app.js",
+    "start-server": "node app.js"
   },
-  "author": "Abhay Verma",
+  "author": "Abhay verma",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.22"
