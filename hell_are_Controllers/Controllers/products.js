@@ -20,6 +20,7 @@ exports.postAddProduct = (req, res, next) => {
 
 exports.getProducts = (req, res, next) => {
   Product.fecthAll((products) => {
+    console.log(products);
     res.render("shop", {
       prods: products,
       pageTitle: "Shop",
