@@ -12,6 +12,8 @@ const addUsers = async (req, res, next) => {
       email: email,
     });
 
+    console.log(uId);
+
     res.status(201).json({ newUserDetail: uId });
   } catch (err) {
     res.status(500).json({
