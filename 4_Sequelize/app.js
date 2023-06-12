@@ -6,10 +6,10 @@ const bodyParser = require("body-parser");
 const errorController = require("./controllers/error");
 const sequelize = require("./util/database");
 
+const Product = require("./models/product");
 const User = require("./models/user");
 const Expense = require("./models/expense");
 const cors = require("cors");
-
 const app = express();
 app.use(cors());
 
@@ -33,11 +33,10 @@ app.use(errorController.get404);
 
 sequelize
   .sync()
-  .then((result) => {
-    // console.log(result);
+  .then((user) => {
     app.listen(3000, () => {
       console.log("Running the Server With Sequelize");
-    });
+    })
   })
   .catch((error) => {
     console.log(error);
