@@ -2,14 +2,14 @@ const Expense = require("../models/expense");
 
 const addExpense = async (req, res, enxt) => {
   try {
-    const amount = req.body.money;
-    const descripition = req.body.description;
-    const category = req.body.category;
+    const Amount = req.body.Fmoney;
+    const Descripition = req.body.Fdescription;
+    const Category = req.body.Fcategory;
 
     const uId = await Expense.create({
-      amount: amount,
-      descripiton: descripition,
-      category: category,
+      amount: Amount,
+      descripiton: Descripition,
+      category: Category,
     });
     res.status(201).json({ newExpense: uId });
   } catch (err) {
@@ -21,10 +21,11 @@ const addExpense = async (req, res, enxt) => {
 
 const getExpense = async (req, res, next) => {
   try {
+    console.log(Expense);
     const data = await Expense.findAll();
     res.status(200).json({ allExpense: data });
   } catch (error) {
-    console.log("Get user is falling", JSON.stringify(error));
+    console.log((error));
     res.status(500).json({ error: error });
   }
 };

@@ -13,7 +13,7 @@ const User = sequelize.define("user", {
     unique: true,
   },
   phonenumber: {
-    type: Sequelize.STRING,
+    type: Sequelize.INTEGER,
     unique: true,
   },
 });

@@ -1,15 +1,17 @@
 const User = require('../models/user');
+console.log(User.findAll);
+
 
 const addUsers = async (req, res, next) => {
   try {
-    const name = req.body.name;
-    const phonenumber = req.body.number;
-    const email = req.body.email;
+    const Name = req.body.name;
+    const Email = req.body.email;
+    const phone = req.body.number;
 
     const uId = await User.create({
-      name: name,
-      phonenumber: phonenumber,
-      email: email,
+      name: Name,
+      email: Email,
+      phonenumber: phone,
     });
 
     console.log(uId);
